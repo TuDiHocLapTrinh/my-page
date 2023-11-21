@@ -14,6 +14,7 @@ import Plane from '../models/Plane';
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
+  const [currentStage, setCurrentStage] = useState(1);
 
   const adjustIslandForScreenSize = () => {
     let screenScale;
@@ -47,7 +48,7 @@ const Home = () => {
     adjustIslandForScreenSize();
 
   const [planeScale, planePosition] = adjustPlaneForScreenSize();
-  
+
   return (
     <section className='w-full h-screen relative'>
       <Canvas
@@ -65,13 +66,14 @@ const Home = () => {
             intensity={1}
           />
           <Bird />
-          <Sky />
+          <Sky isRotating={isRotating} />
           <Island
             position={islanPositon}
             scale={islandScale}
             rotation={islandRotation}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
+            setCurrentStage={setCurrentStage}
           />
           <Plane
             isRotating={isRotating}
