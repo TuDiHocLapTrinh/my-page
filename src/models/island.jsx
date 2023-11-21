@@ -92,7 +92,7 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
        *     modulo operation to the value obtained in step 2. This step guarantees that the value
        *     always stays within the range of 0 to 2 * Math.PI, which is equivalent to a full
        *     circle in radians.
-       */
+       **/
       const normalizedRotation =
         ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
 
